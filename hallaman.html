@@ -1,0 +1,131 @@
+ <style>
+h1 {
+    color: rgb(255, 255, 255);
+    background-color: blue;
+    padding: 4%;
+}
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 10%;
+}
+
+
+
+#searchButton {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+
+#searchButton:hover {
+    background-color: #1d8aff;
+}
+
+
+
+.search-container {
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .search-input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        .search-results {
+            margin-top: 10px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
+            position: absolute;
+            width: 100%;
+            z-index: 1000;
+        }
+        .search-results ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .search-results ul li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .search-results ul li:last-child {
+            border-bottom: none;
+        }
+        .search-results ul li:hover {
+            background-color: #f8f9fa;
+        }
+ </style>
+ </div>
+    <div class="search-section">
+        <div class="container">
+            <h1>Pencarian Script </h1>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Masukkan kata kunci">
+                <button id="searchButton">Cari</button>
+            </div>
+            <div id="display" class="display-area"></div>
+        </div>
+        
+    </div>
+    <script>
+    /* JavaScript (script.js) */
+// Fungsi untuk menangani pencarian dan pindah tampilan
+const searchAndNavigate = (query, data, displayCallback) => {
+    // Lakukan pencarian berdasarkan query
+    const searchResults = data.filter(item => item.name.toLowerCase().includes(query.toLowerCase()));
+
+    if (searchResults.length === 0) {
+        displayCallback([{ name: "Halaman tidak ditemukan", link: "#" }]);
+    } else {
+        displayCallback(searchResults);
+    }
+};
+
+// Contoh data untuk pencarian (dengan nama dan link halaman)
+const sampleData = [
+    { name: "Radit1ty", link: "radit1ty.html" },
+    { name: "script", link: "https://raditya1ty.github.io/radit1tyzto" },
+    { name: "Pengaturan", link: "pengaturan.html" },
+    { name: "Bantuan", link: "bantuan.html" },
+    { name: "Tentang Kami", link: "tentangkami.html" }
+];
+
+// Contoh implementasi callback untuk mengganti tampilan
+const updateDisplay = (results) => {
+    const displayElement = document.getElementById("display");
+    displayElement.innerHTML = "<ul>" + results.map(item => `<li><a href="${item.link}">${item.name}</a></li>`).join('') + "</ul>";
+};
+
+// Menambahkan event listener untuk pencarian
+const searchInput = document.getElementById("searchInput");
+const searchButton = document.getElementById("searchButton");
+
+searchButton.addEventListener("click", () => {
+    const query = searchInput.value;
+    searchAndNavigate(query, sampleData, updateDisplay);
+});
+
+    </script>

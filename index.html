@@ -1,0 +1,522 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempat Website | radit1ty</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+       body {
+       font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+       }
+        .header {
+            background-color: #051eff;
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .header i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        .header h1 {
+            font-size: 20px;
+            margin: 0;
+        }
+        .banner {
+            background-color: #1d00bf;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        .banner button {
+            background-color: #ff7043;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .class-section {
+            background-color: #e0e0e0;
+            text-align: center;
+            padding: 20px;
+        }
+        .class-section img {
+            width: 100%;
+            max-width: 300px;
+        }
+        .class-section .class-label {
+            background-color: #bdbdbd;
+            padding: 10px;
+            margin-top: 10px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+        .search-section {
+            padding: 20px;
+            text-align: center;
+        }
+        .search-section input {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            border: 1px solid #bdbdbd;
+            border-radius: 5px;
+        }
+        .subjects-section {
+            padding: 20px;
+        }
+        .subjects-section h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .subjects-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .subject {
+            text-align: center;
+            margin: 10px;
+            flex: 1 1 30%;
+            max-width: 100px;
+        }
+        .subject img {
+            width: 50px;
+            height: 50px;
+        }
+        .subject p {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            background-color: #e0e0e0;
+        }
+        .footer i {
+            font-size: 24px;
+            color: #4db6ac;
+        }
+
+        .menu-container {
+    position: relative;
+    margin: 20px;
+}
+
+.menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.menu.open {
+    max-height: 200px; /* Atur sesuai kebutuhan */
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.menu li {
+    padding: 8px 0;
+}
+
+
+
+.menu-container {
+            position: relative;
+            width: 200px;
+        }
+        .menu-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .menu {
+            margin-top: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+        }
+        .menu.open {
+            max-height: 200px;
+            opacity: 1;
+        }
+        .menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 10px;
+        }
+        .menu ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .menu ul li:last-child {
+            border-bottom: none;
+        }
+        .menu ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+        .menu ul li a:hover {
+            color: #007bff;
+        }
+
+
+
+        .search-container {
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .search-input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        .search-results {
+            margin-top: 10px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
+            position: absolute;
+            width: 100%;
+            z-index: 1000;
+        }
+        .search-results ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .search-results ul li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .search-results ul li:last-child {
+            border-bottom: none;
+        }
+        .search-results ul li:hover {
+            background-color: #f8f9fa;
+        }
+
+
+
+
+
+
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+
+
+#searchButton {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#searchButton:hover {
+    background-color: #3e90e7;
+}
+
+.marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            background-color: #007bff04; /* Warna latar belakang */
+            color: white; /* Warna teks */
+            padding: 10px 0; /* Padding atas dan bawah */
+            height: 60px; /* Tinggi container */
+        }
+
+        .marquee {
+            display: inline-block;
+            animation: marquee 9s linear infinite; /* Durasi animasi */
+            font-size: 35px; /* Ukuran teks yang diperbesar */
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); } /* Mulai dari luar kanan */
+            100% { transform: translateX(-100%); } /* Berhenti di luar kiri */
+        }
+
+a {
+    color: #ffffff;
+    background-color: #00000000;
+}
+
+
+
+.book {
+            width: 200px;
+            height: 300px;
+            perspective: 1000px; /* Menambahkan perspektif */
+            margin: 50px auto;
+        }
+
+        .book-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: transform 0.6s; /* Durasi animasi */
+            transform-style: preserve-3d; /* Mempertahankan gaya 3D */
+        }
+
+        .book-front, .book-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden; /* Menyembunyikan sisi belakang */
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .book-front {
+            background-color: #007bff; /* Warna depan */
+        }
+
+        .book-back {
+            background-color: #ff7043; /* Warna belakang */
+            transform: rotateY(180deg); /* Memutar 180 derajat */
+        }
+
+        .book-inner.flipped {
+            transform: rotateY(180deg); /* Memutar saat flipped */
+        }
+
+
+        .slider {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    overflow: hidden;
+    border: 2px solid #000;
+}
+
+.slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+    width: 300px;
+    height: 150px;
+    flex-shrink: 0;
+}
+   
+
+a {
+    color: #000;
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="menu-container">
+            <button class="menu-button" onclick="toggleMenu()">Menu</button>
+            <div class="menu" id="menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="https://raditya1ty.github.io/radit1ty/keranjang.html">Services</a></li>
+                    <li><a href="https://raditya1ty.github.io/radit1ty/keranjang.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    
+    
+        <div class="marquee-container">
+            <div class="marquee">
+                مرحبا بكم في موقع مكتبة  selamat datang di website perpustakaan  radit1ty
+            </div>
+        </div>
+    </div>
+    <script>
+     function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('open');
+        }
+    </script>
+     <div class="banner">
+        <div class="music-player">
+            <audio id="audioPlayer" controls>
+                <source src="ssstik.io_1733593412118.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <br>
+            <button onclick="playMusic()">Play</button>
+            <button onclick="pauseMusic()">Pause</button>
+            <button onclick="stopMusic()">Stop</button>
+        </div>
+     </div>
+     <script>
+        const audioPlayer = document.getElementById('audioPlayer');
+
+        function playMusic() {
+            audioPlayer.play();
+        }
+
+        function pauseMusic() {
+            audioPlayer.pause();
+        }
+
+        function stopMusic() {
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+        }
+    </script>
+    <div class="class-section">
+        <div class="slider">
+            <div class="slides">
+                <img src="Gambar WhatsApp 2024-12-12 pukul 10.21.25_77008d61.jpg" alt="Image 1">
+                <img src="RaditStore_300x150.png" alt="Image 2">
+                <img src="d3e07bfc-759b-4aac-9e12-f6b445f93f36.webp" alt="Image 3">
+            </div>
+            <button class="prev" id="prevBtn">❮</button>
+            <button class="next" id="nextBtn">❯</button>
+        </div>
+</div>
+     
+    </div>
+    <script>
+     const slides = document.querySelector(".slides");
+const images = document.querySelectorAll(".slides img");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+let currentIndex = 0;
+const totalImages = images.length;
+
+// Fungsi untuk pindah ke slide berikutnya
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalImages;
+    updateSlide();
+}
+
+// Fungsi untuk pindah ke slide sebelumnya
+function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+    updateSlide();
+}
+
+// Fungsi untuk memperbarui posisi slide
+function updateSlide() {
+    const offset = -currentIndex * 300; // Geser berdasarkan ukuran gambar
+    slides.style.transform = `translateX(${offset}px)`;
+}
+
+// Geser otomatis setiap 3 detik
+let autoSlide = setInterval(nextSlide, 3000);
+
+// Tombol prev dan next
+prevBtn.addEventListener("click", () => {
+    clearInterval(autoSlide); // Hentikan geser otomatis saat tombol ditekan
+    prevSlide();
+    autoSlide = setInterval(nextSlide, 3000); // Restart geser otomatis
+});
+
+nextBtn.addEventListener("click", () => {
+    clearInterval(autoSlide); // Hentikan geser otomatis saat tombol ditekan
+    nextSlide();
+    autoSlide = setInterval(nextSlide, 3000); // Restart geser otomatis
+});
+
+    </script>
+   
+        
+  
+    <div class="subjects-section">
+        <h2>Pilih script yg mna</h2>
+        <div class="subjects-grid">
+            <div class="subject">
+                <img src="mtk sesat.png" alt="Icon representing Mathematics">
+              <a href="https://www.myedisi.com/bse/203142/matematika">Matematika</a>
+            </div>
+            <div class="subject">
+                <img src="ips.jpg" alt="Icon representing Physics">
+                <a href=""><p>ips</p></a>
+            </div>
+            <div class="subject">
+                <img src="ipa.jpeg" alt="Icon representing Chemistry">
+
+                  <a href="https://www.omahbse.com/ktsp/file/sltp-7_ips_013/"><p>Ipa</p></a>       
+  </div>
+            <div class="subject">
+                <img src="informatika.jpg" alt="Icon representing Biology">
+                <a href="https://gurune.net/download-buku-siswa-informatika-kelas-7-smp-mts-kurikulum-merdeka/"><p>informatika(IT)</p></a>
+            </div>
+            <div class="subject">
+                <img src="bhs indo.jpg" alt="Icon representing Indonesian Language">
+                <a href="https://www.myedisi.com/bse/203025/bahasa-indonesia"><p>bhs indonesia</p></a>
+            </div>
+            <div class="subject">
+                <img src="bhs inggis.jpg" alt="Icon representing English Language">
+               <a href="https://bukusekolah.id/buku/buku-bahasa-inggris-kelas-7-smp-kurikulum-merdeka/"><p>bhs inggris</p></a>
+            </div>
+            <div class="subject">
+                <img src="prakarya.jpeg" alt="Icon representing Geography">
+              <a href="https://drive.google.com/file/d/0B08C4WiimKyfaGIxU09oa2tpTU0/view?resourcekey=0-ePsox0M01hsmVnTaiRQ6Vw"><p>prakarya</p></a>
+            </div>
+            <div class="subject">
+                <img src="agama.jpg" alt="Icon representing Economics">
+               <a href="buku bhs arab dan agama.html"><p>Buku bhs arab dan agama</p></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="#"><i class="fas fa-home"></i></a>
+       <a href="hallaman.html"><i class="fas fa-search"></i></a>
+       <a href="buku.html"><i class="fas fa-book"></i></a>
+      <a href="notifikasi.html"><i class="fas fa-bell"></i></a>
+        <a href="tempat kita.html"><i class="fas fa-user"></i></a>
+    </div>
+</body>
+</html>

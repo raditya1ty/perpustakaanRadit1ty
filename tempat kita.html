@@ -1,0 +1,639 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempat Website | radit1ty</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+       body {
+       font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+       }
+        .header {
+            background-color: #051eff;
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .header i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        .header h1 {
+            font-size: 20px;
+            margin: 0;
+        }
+        .banner {
+            background-color: #1d00bf;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        .banner button {
+            background-color: #ff7043;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .class-section {
+            background-color: #e0e0e0;
+            text-align: center;
+            padding: 20px;
+        }
+        .class-section img {
+            width: 100%;
+            max-width: 300px;
+        }
+        .class-section .class-label {
+            background-color: #bdbdbd;
+            padding: 10px;
+            margin-top: 10px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+        .search-section {
+            padding: 20px;
+            text-align: center;
+        }
+        .search-section input {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            border: 1px solid #bdbdbd;
+            border-radius: 5px;
+        }
+        .subjects-section {
+            padding: 20px;
+        }
+        .subjects-section h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .subjects-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .subject {
+            text-align: center;
+            margin: 10px;
+            flex: 1 1 30%;
+            max-width: 100px;
+        }
+        .subject img {
+            width: 50px;
+            height: 50px;
+        }
+        .subject p {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            background-color: #e0e0e0;
+        }
+        .footer i {
+            font-size: 24px;
+            color: #4db6ac;
+        }
+
+        .menu-container {
+    position: relative;
+    margin: 20px;
+}
+
+.menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.menu.open {
+    max-height: 200px; /* Atur sesuai kebutuhan */
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.menu li {
+    padding: 8px 0;
+}
+
+
+
+.menu-container {
+            position: relative;
+            width: 200px;
+        }
+        .menu-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .menu {
+            margin-top: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+        }
+        .menu.open {
+            max-height: 200px;
+            opacity: 1;
+        }
+        .menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 10px;
+        }
+        .menu ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .menu ul li:last-child {
+            border-bottom: none;
+        }
+        .menu ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+        .menu ul li a:hover {
+            color: #007bff;
+        }
+
+
+
+        .search-container {
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .search-input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        .search-results {
+            margin-top: 10px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
+            position: absolute;
+            width: 100%;
+            z-index: 1000;
+        }
+        .search-results ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .search-results ul li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .search-results ul li:last-child {
+            border-bottom: none;
+        }
+        .search-results ul li:hover {
+            background-color: #f8f9fa;
+        }
+
+
+
+
+
+
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+
+
+#searchButton {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#searchButton:hover {
+    background-color: #3e90e7;
+}
+
+.marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            background-color: #007bff04; /* Warna latar belakang */
+            color: white; /* Warna teks */
+            padding: 10px 0; /* Padding atas dan bawah */
+            height: 60px; /* Tinggi container */
+        }
+
+        .marquee {
+            display: inline-block;
+            animation: marquee 9s linear infinite; /* Durasi animasi */
+            font-size: 35px; /* Ukuran teks yang diperbesar */
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); } /* Mulai dari luar kanan */
+            100% { transform: translateX(-100%); } /* Berhenti di luar kiri */
+        }
+
+a {
+    color: #ffffff;
+    background-color: #00000000;
+}
+
+
+
+.book {
+            width: 200px;
+            height: 300px;
+            perspective: 1000px; /* Menambahkan perspektif */
+            margin: 50px auto;
+        }
+
+        .book-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: transform 0.6s; /* Durasi animasi */
+            transform-style: preserve-3d; /* Mempertahankan gaya 3D */
+        }
+
+        .book-front, .book-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden; /* Menyembunyikan sisi belakang */
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .book-front {
+            background-color: #007bff; /* Warna depan */
+        }
+
+        .book-back {
+            background-color: #ff7043; /* Warna belakang */
+            transform: rotateY(180deg); /* Memutar 180 derajat */
+        }
+
+        .book-inner.flipped {
+            transform: rotateY(180deg); /* Memutar saat flipped */
+        }
+
+
+        .slider {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    overflow: hidden;
+    border: 2px solid #000;
+}
+
+.slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+    width: 300px;
+    height: 150px;
+    flex-shrink: 0;
+}
+   
+
+a {
+    color: #000;
+}
+
+.container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .logo {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .logo {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+        .hidden {
+            display: none;
+        }
+
+        .profil-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+}
+
+.profil-img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+p {
+  font-size: 16px;
+  color: #777;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="menu-container">
+            <button class="menu-button" onclick="toggleMenu()">Menu</button>
+            <div class="menu" id="menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="https://raditya1ty.github.io/radit1ty/keranjang.html">Services</a></li>
+                    <li><a href="https://raditya1ty.github.io/radit1ty/keranjang.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    
+    
+        <div class="marquee-container">
+            <div class="marquee">
+                مرحبا بكم في موقع مكتبة  selamat datang di website perpustakaan  radit1ty
+            </div>
+        </div>
+    </div>
+    <script>
+     function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('open');
+        }
+    </script>
+     
+    
+    <div class="class-section">
+        <div class="slider">
+            <div class="slides">
+                <img src="Gambar WhatsApp 2024-12-12 pukul 10.21.25_77008d61.jpg" alt="Image 1">
+                <img src="RaditStore_300x150.png" alt="Image 2">
+                <img src="d3e07bfc-759b-4aac-9e12-f6b445f93f36.webp" alt="Image 3">
+            </div>
+            <button class="prev" id="prevBtn">❮</button>
+            <button class="next" id="nextBtn">❯</button>
+        </div>
+</div>
+     
+    </div>
+    <script>
+     const slides = document.querySelector(".slides");
+const images = document.querySelectorAll(".slides img");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+let currentIndex = 0;
+const totalImages = images.length;
+
+// Fungsi untuk pindah ke slide berikutnya
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalImages;
+    updateSlide();
+}
+
+// Fungsi untuk pindah ke slide sebelumnya
+function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+    updateSlide();
+}
+
+// Fungsi untuk memperbarui posisi slide
+function updateSlide() {
+    const offset = -currentIndex * 300; // Geser berdasarkan ukuran gambar
+    slides.style.transform = `translateX(${offset}px)`;
+}
+
+// Geser otomatis setiap 3 detik
+let autoSlide = setInterval(nextSlide, 3000);
+
+// Tombol prev dan next
+prevBtn.addEventListener("click", () => {
+    clearInterval(autoSlide); // Hentikan geser otomatis saat tombol ditekan
+    prevSlide();
+    autoSlide = setInterval(nextSlide, 3000); // Restart geser otomatis
+});
+
+nextBtn.addEventListener("click", () => {
+    clearInterval(autoSlide); // Hentikan geser otomatis saat tombol ditekan
+    nextSlide();
+    autoSlide = setInterval(nextSlide, 3000); // Restart geser otomatis
+});
+
+    </script>
+   
+        
+  
+    <div class="subjects-section">
+        <h2>Profil</h2>
+      <div class="container" id="signupContainer">
+        <div class="logo">🌟</div>
+        <h1>Buat Akun</h1>
+        <form id="signupForm">
+            <input type="text" id="username" placeholder="Nama Pengguna" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Kata Sandi" required>
+            <button type="submit">Daftar</button>
+        </form>
+        <p id="message" style="color: green; margin-top: 10px;"></p>
+    </div>
+
+    <div class="container hidden" id="welcomeContainer">
+        <div class="profil-container">
+            <div class="profil-card">
+              <img src="https://via.placeholder.com/150" alt="Foto Profil" class="profil-img">
+              <h2 id="nama">Nama Pengguna</h2>
+              <p id="deskripsi">Deskripsi singkat tentang pengguna ini...</p>
+              <button onclick="ubahProfil()">Ubah Profil</button>
+            </div>
+          </div>
+        <button id="logoutButton">Keluar</button>
+    </div>
+<script>
+    function ubahProfil() {
+  let nama = prompt("Masukkan nama baru:");
+  let deskripsi = prompt("Masukkan deskripsi baru:");
+
+  if (nama && deskripsi) {
+    document.getElementById("nama").textContent = nama;
+    document.getElementById("deskripsi").textContent = deskripsi;
+  }
+}
+
+</script>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Simulasi pendaftaran akun
+            document.getElementById('message').textContent = `Akun untuk ${username} berhasil dibuat!`;
+
+            // Tampilkan halaman setelah login
+            setTimeout(() => {
+                document.getElementById('signupContainer').classList.add('hidden');
+                document.getElementById('welcomeContainer').classList.remove('hidden');
+                document.getElementById('welcomeMessage').textContent = `Halo, ${username}! Selamat datang di situs kami.`;
+            }, 1000);
+        });
+
+        document.getElementById('logoutButton').addEventListener('click', function() {
+            // Reset kembali ke form pendaftaran
+            document.getElementById('signupForm').reset();
+            document.getElementById('signupContainer').classList.remove('hidden');
+            document.getElementById('welcomeContainer').classList.add('hidden');
+            document.getElementById('message').textContent = '';
+        });
+    </script>
+    </div>
+    <div class="footer">
+        <a href="index.html"><i class="fas fa-home"></i></a>
+       <a href="hallaman.html"><i class="fas fa-search"></i></a>
+       <a href="buku.html"><i class="fas fa-book"></i></a>
+      <a href="notifikasi.html"><i class="fas fa-bell"></i></a>
+        <a href="tempat kita.html"><i class="fas fa-user"></i></a>
+    </div>
+</body>
+</html>
