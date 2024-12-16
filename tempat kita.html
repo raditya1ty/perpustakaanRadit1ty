@@ -3,10 +3,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut Icon" href="logo radit.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tempat Website | radit1ty</title>
+    <title>Tempat profil  | Premium</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
+    <link rel="stylesheet" href="styles.css">
+   <style>
        body {
        font-family: Arial, sans-serif;
             margin: 0;
@@ -472,19 +474,20 @@ button {
 button:hover {
   background-color: #45a049;
 }
-
+p {
+    color:#000
+}
     </style>
 </head>
 <body>
     <div class="header">
         <div class="menu-container">
-            <button class="menu-button" onclick="toggleMenu()">Menu</button>
+            <button class="menu-button" onclick="toggleMenu()">Admin</button>
             <div class="menu" id="menu">
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="https://raditya1ty.github.io/radit1ty/keranjang.html">Services</a></li>
-                    <li><a href="https://raditya1ty.github.io/radit1ty/keranjang.html">Contact</a></li>
+                   <p>Radit1ty:owner</p>
+                   <p>Rafi:Admin</p>
+                   <p>Kholdan:Admin</p>
                 </ul>
             </div>
         </div>
@@ -562,78 +565,196 @@ nextBtn.addEventListener("click", () => {
 
     </script>
    
-        
+
+       <style>
+         
+         
+           button {
+               padding: 10px 20px;
+               background-color: #007BFF;
+               color: #fff;
+               border: none;
+               border-radius: 5px;
+               cursor: pointer;
+           }
+           button:hover {
+               background-color: #0056b3;
+           }
+           .notification {
+               background-color: #28a745;
+               color: white;
+               padding: 10px;
+               border-radius: 5px;
+               margin-top: 10px;
+           }
+           img {
+               max-width: 100px;
+               border-radius: 50%;
+               margin-top: 10px;
+           }
+         
+       </style>
+
   
-    <div class="subjects-section">
-        <h2>Profil</h2>
-      <div class="container" id="signupContainer">
-        <div class="logo">🌟</div>
-        <h1>Buat Akun</h1>
-        <form id="signupForm">
-            <input type="text" id="username" placeholder="Nama Pengguna" required>
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Kata Sandi" required>
-            <button type="submit">Daftar</button>
-        </form>
-        <p id="message" style="color: green; margin-top: 10px;"></p>
-    </div>
 
-    <div class="container hidden" id="welcomeContainer">
-        <div class="profil-container">
-            <div class="profil-card">
-              <img src="https://via.placeholder.com/150" alt="Foto Profil" class="profil-img">
-              <h2 id="nama">Nama Pengguna</h2>
-              <p id="deskripsi">Deskripsi singkat tentang pengguna ini...</p>
-              <button onclick="ubahProfil()">Ubah Profil</button>
-            </div>
-          </div>
-        <button id="logoutButton">Keluar</button>
-    </div>
 <script>
-    function ubahProfil() {
-  let nama = prompt("Masukkan nama baru:");
-  let deskripsi = prompt("Masukkan deskripsi baru:");
-
-  if (nama && deskripsi) {
-    document.getElementById("nama").textContent = nama;
-    document.getElementById("deskripsi").textContent = deskripsi;
-  }
-}
-
+    function togglePopup() {
+        const popup = document.getElementById('popup');
+        popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+    }
 </script>
-    <script>
-        document.getElementById('signupForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            // Simulasi pendaftaran akun
-            document.getElementById('message').textContent = `Akun untuk ${username} berhasil dibuat!`;
-
-            // Tampilkan halaman setelah login
-            setTimeout(() => {
-                document.getElementById('signupContainer').classList.add('hidden');
-                document.getElementById('welcomeContainer').classList.remove('hidden');
-                document.getElementById('welcomeMessage').textContent = `Halo, ${username}! Selamat datang di situs kami.`;
-            }, 1000);
-        });
-
-        document.getElementById('logoutButton').addEventListener('click', function() {
-            // Reset kembali ke form pendaftaran
-            document.getElementById('signupForm').reset();
-            document.getElementById('signupContainer').classList.remove('hidden');
-            document.getElementById('welcomeContainer').classList.add('hidden');
-            document.getElementById('message').textContent = '';
-        });
-    </script>
-    </div>
+   
+       <div class="container" id="loginContainer">
+           <h2>Login untuk jadi admin Premium</h2>
+           <form id="loginForm">
+               <input type="text" id="username" placeholder="Username" required>
+               <input type="password" id="password" placeholder="Password" required>
+               <button type="submit">Login</button>
+           </form>
+           <div id="loginNotification" class="notification" style="display: none;"></div>
+       </div>
+   
+       <div class="container" id="profilContainer" style="display: none;">
+           <h2>Profil Saya</h2>
+           <form id="profilForm">
+               <input type="text" id="nama" placeholder="Nama" required>
+               <input type="text" id="pekerjaan" placeholder="Pekerjaan" required>
+               <input type="file" id="foto" accept="image/*">
+               <button type="submit">Simpan</button>
+           </form>
+           <div id="profilInfo" style="display: none;">
+               <h3>Informasi Profil</h3>
+               <img id="profilFoto" src="" alt="Foto Profil" style="display: none;">
+               <p><strong>Nama:</strong> <span id="displayNama"></span></p>
+               <p><strong>Pekerjaan:</strong> <span id="displayPekerjaan"></span></p>
+               <button id="editButton">Edit</button>
+           </div>
+       </div>
+   
+       <script>
+           const loginForm = document.getElementById('loginForm');
+           const loginContainer = document.getElementById('loginContainer');
+           const profilContainer = document.getElementById('profilContainer');
+           const loginNotification = document.getElementById('loginNotification');
+   
+           const profilForm = document.getElementById('profilForm');
+           const profilInfo = document.getElementById('profilInfo');
+           const namaInput = document.getElementById('nama');
+           const pekerjaanInput = document.getElementById('pekerjaan');
+           const fotoInput = document.getElementById('foto');
+           const profilFoto = document.getElementById('profilFoto');
+           const displayNama = document.getElementById('displayNama');
+           const displayPekerjaan = document.getElementById('displayPekerjaan');
+           const editButton = document.getElementById('editButton');
+   
+           // Simulasi kredensial login
+           const USERNAME = "radit1ty";
+           const PASSWORD = "radit suka salsabila";
+   
+           // Cek jika pengguna sudah login
+           document.addEventListener('DOMContentLoaded', () => {
+               const isLoggedIn = localStorage.getItem('isLoggedIn');
+               if (isLoggedIn === 'true') {
+                   showProfil();
+               } else {
+                   showLogin();
+               }
+   
+               const savedNama = localStorage.getItem('nama');
+               const savedPekerjaan = localStorage.getItem('pekerjaan');
+               const savedFoto = localStorage.getItem('foto');
+   
+               if (savedNama && savedPekerjaan) {
+                   displayNama.textContent = savedNama;
+                   displayPekerjaan.textContent = savedPekerjaan;
+                   profilFoto.src = savedFoto || '';
+                   if (savedFoto) profilFoto.style.display = 'block';
+   
+                   profilForm.style.display = 'none';
+                   profilInfo.style.display = 'block';
+               }
+           });
+   
+           // Event login
+           loginForm.addEventListener('submit', (e) => {
+               e.preventDefault();
+   
+               const username = document.getElementById('username').value;
+               const password = document.getElementById('password').value;
+   
+               if (username === USERNAME && password === PASSWORD) {
+                   localStorage.setItem('isLoggedIn', 'true');
+                   loginNotification.style.display = 'block';
+                   loginNotification.textContent = 'Login berhasil!';
+   
+                   setTimeout(() => {
+                       showProfil();
+                   }, 1000);
+               } else {
+                   loginNotification.style.display = 'block';
+                   loginNotification.textContent = 'Username atau password salah!';
+                   loginNotification.style.backgroundColor = '#dc3545';
+               }
+           });
+   
+           // Simpan data ke localStorage
+           profilForm.addEventListener('submit', (e) => {
+               e.preventDefault();
+   
+               const nama = namaInput.value;
+               const pekerjaan = pekerjaanInput.value;
+               const foto = fotoInput.files[0];
+   
+               localStorage.setItem('nama', nama);
+               localStorage.setItem('pekerjaan', pekerjaan);
+   
+               if (foto) {
+                   const reader = new FileReader();
+                   reader.onload = function (e) {
+                       const fotoUrl = e.target.result;
+                       localStorage.setItem('foto', fotoUrl);
+                       profilFoto.src = fotoUrl;
+                       profilFoto.style.display = 'block';
+                   };
+                   reader.readAsDataURL(foto);
+               }
+   
+               displayNama.textContent = nama;
+               displayPekerjaan.textContent = pekerjaan;
+               profilForm.style.display = 'none';
+               profilInfo.style.display = 'block';
+           });
+   
+           // Edit data profil
+           editButton.addEventListener('click', () => {
+               namaInput.value = displayNama.textContent;
+               pekerjaanInput.value = displayPekerjaan.textContent;
+   
+               profilForm.style.display = 'block';
+               profilInfo.style.display = 'none';
+           });
+   
+           // Fungsi untuk menampilkan halaman login
+           function showLogin() {
+               loginContainer.style.display = 'block';
+               profilContainer.style.display = 'none';
+           }
+   
+           // Fungsi untuk menampilkan halaman profil
+           function showProfil() {
+               loginContainer.style.display = 'none';
+               profilContainer.style.display = 'block';
+           }
+       </script>
+<p>yg bisa tahu user sama password nanti kita bakalan kasih uang </p>
+<p>nah kalian ambil sendiri uangnya kita kasih tau cara ambilnya kalu sudah tau pass sama user cari radit1ty klik saja </p>
     <div class="footer">
         <a href="index.html"><i class="fas fa-home"></i></a>
        <a href="hallaman.html"><i class="fas fa-search"></i></a>
        <a href="buku.html"><i class="fas fa-book"></i></a>
       <a href="notifikasi.html"><i class="fas fa-bell"></i></a>
-        <a href="tempat kita.html"><i class="fas fa-user"></i></a>
-    </div>
+          <a href="tempat kita.html"><i class="fas fa-user"></i></a>
+          <a href="user.html"><i>radit1ty</i></a>
+        </div>
 </body>
 </html>
